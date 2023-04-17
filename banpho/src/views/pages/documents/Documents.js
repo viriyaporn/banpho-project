@@ -445,11 +445,11 @@ const Documents = () => {
         <div>
             <Card sx={{ minWidth: 275, minHeight: '100vh' }}>
                 <div className="header-show-detail" style={{ backgroundColor: '#086c3c', padding: '15px' }}>
-                    <Typography variant="h3" sx={{ fontWeight: 500, color: '#fff' }}>
+                    <Typography variant="h3" sx={{ fontWeight: 500, color: '#fff', textAlign: 'center' }}>
                         รอการอนุมัติ
                     </Typography>
                 </div>
-                <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 3, marginTop: 3 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 5, marginTop: 3 }}>
                     <Typography sx={{ fontWeight: 500 }}>ค้นหา</Typography>
                     <TextField
                         margin="dense"
@@ -458,13 +458,13 @@ const Documents = () => {
                         variant="outlined"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        sx={{ marginLeft: 3, width: '75%' }}
+                        sx={{ marginLeft: 2, width: '75%' }}
                     />
                 </Box>
                 <Button
                     variant="outlined"
                     onClick={handleClickOpen} // setOpen(true)
-                    sx={{ float: 'right', marginRight: '20px', marginTop: '20px', marginBottom: '20px' }}
+                    sx={{ float: 'right', marginRight: 5 }}
                     color="success"
                     startIcon={<AddCircleIcon />}
                 >
@@ -480,9 +480,10 @@ const Documents = () => {
                         padding: '30px'
                     }}
                 >
-                    {/* แสดงตาราง */}
-                    <TableContainer sx={{ maxHeight: 440 }}>
-                        <Table stickyHeader aria-label="sticky table">
+                    {/* แสดงตาราง sx={{ maxHeight: 440 }} */}
+                    <TableContainer>
+                        {/*stickyHeader aria-label="sticky table"*/}
+                        <Table>
                             {/* หัวข้อ Column */}
                             <TableHead>
                                 <TableRow>
@@ -582,7 +583,7 @@ const Documents = () => {
                                         <ol>
                                             {equipment.map((item, key) => (
                                                 <li key={key}>
-                                                    {item.name} จำนวน: {item.detail} file: {item.file}
+                                                    {item.name} จำนวน : {item.detail} file : {item.file}
                                                     <IconButton onClick={() => handleDeleteDocument(key)} color="error" size="small">
                                                         <DeleteIcon />
                                                     </IconButton>
@@ -614,7 +615,7 @@ const Documents = () => {
                                         <Grid container>
                                             <Grid xs={3}>
                                                 <Typography sx={{ fontWeight: 700, marginTop: '20px', fontSize: '16px' }}>
-                                                    ชื่อหัวข้อ
+                                                    ชื่อหัวข้อ :
                                                 </Typography>
                                             </Grid>
                                             <Grid xs={9}>
@@ -635,18 +636,18 @@ const Documents = () => {
                                                             fontWeight: 700
                                                         }}
                                                     >
-                                                        (*ถ้ามี)
+                                                        (*ถ้ามี) :
                                                     </Typography>
                                                 </Typography>
                                             </Grid>
                                             <Grid xs={9}>
-                                                <Typography sx={{ marginTop: '20px', fontSize: '16px' }}>{item.detail}</Typography>
+                                                <Typography sx={{ marginTop: '25px', fontSize: '16px' }}>{item.detail}</Typography>
                                             </Grid>
                                         </Grid>
                                         <Grid container>
                                             <Grid xs={3}>
                                                 <Typography sx={{ fontWeight: 700, fontSize: '16px', marginTop: '20px' }}>
-                                                    แนบไฟล์เอกสาร
+                                                    แนบไฟล์เอกสาร :
                                                 </Typography>
                                             </Grid>
                                             <Grid xs={9}>
@@ -710,8 +711,8 @@ const Documents = () => {
                                 <Grid item xs={12}>
                                     {document?.document_version > 1 ? (
                                         <>
-                                            <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#ff0c34' }}>
-                                                แก้ไขครั้งที่: {document?.document_version - 1}
+                                            <Typography sx={{ fontSize: '16px', fontWeight: '600', color: '#ff0c34' }}>
+                                                แก้ไขครั้งที่ : {document?.document_version - 1}
                                             </Typography>
                                             <br />
                                         </>
@@ -720,7 +721,7 @@ const Documents = () => {
                                     )}
                                 </Grid>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>เลขที่เอกสาร</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>เลขที่เอกสาร :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>{history.code}</Typography>
@@ -729,7 +730,7 @@ const Documents = () => {
 
                             <Grid container sx={{ padding: '15px', backgroundColor: '#f2f2f2' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>ผู้ส่ง</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>ผู้ส่ง :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>{history.reporter}</Typography>
@@ -738,7 +739,7 @@ const Documents = () => {
 
                             <Grid container sx={{ padding: '15px' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>วันที่ส่ง</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>วันที่ส่ง :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>{history.date}</Typography>
@@ -747,7 +748,7 @@ const Documents = () => {
 
                             <Grid container sx={{ padding: '15px', backgroundColor: '#f2f2f2' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>ไฟล์เอกสาร</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>ไฟล์เอกสาร :</Typography>
                                 </Grid>
                                 <Grid item container xs={9} alignItems="center">
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>
@@ -765,7 +766,7 @@ const Documents = () => {
 
                             <Grid container sx={{ padding: '15px' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>รายละเอียด</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>รายละเอียด :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>
@@ -776,7 +777,7 @@ const Documents = () => {
 
                             <Grid container sx={{ padding: '15px', backgroundColor: '#f2f2f2' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>สถานะการอนุมัติ</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>สถานะการอนุมัติ :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Stepper activeStep={activeStepDoc} orientation="vertical" sx={{ marginTop: 3 }}>
@@ -815,18 +816,18 @@ const Documents = () => {
                                 <>
                                     <Grid container sx={{ padding: '15px' }}>
                                         <Grid item xs={3}>
-                                            <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>
-                                                ประวัติการอนุมัติ
+                                            <Typography sx={{ fontSize: '16px', fontWeight: '600', color: '#086c3c' }}>
+                                                ประวัติการอนุมัติ :
                                             </Typography>
                                         </Grid>
                                         <Grid item xs={9}>
                                             <Typography sx={{ fontSize: '16px', color: '#086c3c' }}>ผู้อำนวยการโรงพยาบาล</Typography>
                                             <Typography sx={{ fontSize: '14px', marginLeft: 4 }}>
                                                 <span style={{ color: '#086c3c' }}>• ผ่านการอนุมัติ</span>
-                                                <span style={{ marginLeft: '15px' }}>คุณ: {approver[0]?.approver_name}</span>
+                                                <span style={{ marginLeft: '15px' }}>คุณ : {approver[0]?.approver_name}</span>
                                                 <br />
                                                 <span>
-                                                    [{moment(approver[0]?.created_at).format('DD-MM-YYYY')} เวลา:{' '}
+                                                    [{moment(approver[0]?.created_at).format('DD-MM-YYYY')} เวลา :{' '}
                                                     {moment(approver[0]?.created_at).format('HH:mm')}]
                                                 </span>
                                             </Typography>
@@ -837,10 +838,10 @@ const Documents = () => {
                                                     </Typography>
                                                     <Typography sx={{ fontSize: '14px', marginLeft: 4 }}>
                                                         <span style={{ color: '#086c3c' }}>• ผ่านการอนุมัติ</span>
-                                                        <span style={{ marginLeft: '15px' }}>คุณ: {approver[1]?.approver_name}</span>
+                                                        <span style={{ marginLeft: '15px' }}>คุณ : {approver[1]?.approver_name}</span>
                                                         <br />
                                                         <span>
-                                                            [{moment(approver[1]?.created_at).format('DD-MM-YYYY')} เวลา:{' '}
+                                                            [{moment(approver[1]?.created_at).format('DD-MM-YYYY')} เวลา :{' '}
                                                             {moment(approver[1]?.created_at).format('HH:mm')}]
                                                         </span>
                                                     </Typography>
@@ -854,10 +855,10 @@ const Documents = () => {
                                                     </Typography>
                                                     <Typography sx={{ fontSize: '14px', marginLeft: 4 }}>
                                                         <span style={{ color: '#086c3c', marginLeft: 4 }}>• ผ่านการอนุมัติ</span>
-                                                        <span style={{ marginLeft: '15px' }}>คุณ: {approver[2]?.approver_name}</span>
+                                                        <span style={{ marginLeft: '15px' }}>คุณ : {approver[2]?.approver_name}</span>
                                                         <br />
                                                         <span>
-                                                            [{moment(approver[2]?.created_at).format('DD-MM-YYYY')} เวลา:{' '}
+                                                            [{moment(approver[2]?.created_at).format('DD-MM-YYYY')} เวลา :{' '}
                                                             {moment(approver[2]?.created_at).format('HH:mm')}]
                                                         </span>
                                                     </Typography>
@@ -871,10 +872,10 @@ const Documents = () => {
                                                     </Typography>
                                                     <Typography>
                                                         <span style={{ color: '#086c3c', marginLeft: 4 }}>• ผ่านการอนุมัติ</span>
-                                                        <span style={{ marginLeft: '15px' }}>คุณ: {approver[3]?.approver_name}</span>
+                                                        <span style={{ marginLeft: '15px' }}>คุณ : {approver[3]?.approver_name}</span>
                                                         <br />
                                                         <span>
-                                                            [{moment(approver[3]?.created_at).format('DD-MM-YYYY')} เวลา:{' '}
+                                                            [{moment(approver[3]?.created_at).format('DD-MM-YYYY')} เวลา :{' '}
                                                             {moment(approver[3]?.created_at).format('HH:mm')}]
                                                         </span>
                                                     </Typography>
@@ -888,8 +889,8 @@ const Documents = () => {
                                 <>
                                     <Grid container sx={{ padding: '15px' }}>
                                         <Grid item xs={3}>
-                                            <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#ff0c34' }}>
-                                                ประวัติการไม่อนุมัติ
+                                            <Typography sx={{ fontSize: '14px', fontWeight: '600', color: '#ff0c34', magintop: 2 }}>
+                                                ประวัติการไม่อนุมัติ :
                                             </Typography>
                                         </Grid>
                                         <Grid item xs={9}>
@@ -897,42 +898,42 @@ const Documents = () => {
                                                 <>
                                                     {item.approver_id === 2 && (
                                                         <>
-                                                            <Typography sx={{ fontSize: '16px', color: '#086c3c' }}>
+                                                            <Typography sx={{ fontSize: '16px', color: '#086c3c', magintop: 2 }}>
                                                                 ผู้อำนวยการโรงพยาบาล
                                                             </Typography>
                                                         </>
                                                     )}
                                                     {item.approver_id === 3 && (
                                                         <>
-                                                            <Typography sx={{ fontSize: '16px', color: '#086c3c' }}>
+                                                            <Typography sx={{ fontSize: '16px', color: '#086c3c', magintop: 2 }}>
                                                                 เจ้าหน้าที่สาธารณสุขอำเภอบ้านโพธิ์
                                                             </Typography>
                                                         </>
                                                     )}
                                                     {item.approver_id === 4 && (
                                                         <>
-                                                            <Typography sx={{ fontSize: '16px', color: '#086c3c' }}>
+                                                            <Typography sx={{ fontSize: '16px', color: '#086c3c', magintop: 2 }}>
                                                                 ผู้ช่วยสาธารณสุขอำเภอบ้านโพธิ์
                                                             </Typography>
                                                         </>
                                                     )}
                                                     {item.approver_id === 5 && (
                                                         <>
-                                                            <Typography sx={{ fontSize: '16px', color: '#086c3c' }}>
+                                                            <Typography sx={{ fontSize: '16px', color: '#086c3c', magintop: 2 }}>
                                                                 สาธารณสุขอำเภอบ้านโพธิ์
                                                             </Typography>
                                                         </>
                                                     )}
-                                                    <Typography sx={{ fontSize: '14px' }}>
-                                                        <span style={{ color: '#ff0c34', marginLeft: '15px' }}>• ไม่ผ่านการอนุมัติ</span>
-                                                        <span style={{ marginLeft: '15px' }}>({item?.approver_name})</span>
+                                                    <Typography sx={{ fontSize: '15px', marginLeft: 4 }}>
+                                                        <span style={{ color: '#ff0c34' }}>• ไม่ผ่านการอนุมัติ</span>
+                                                        <span style={{ marginLeft: '15px' }}>คุณ : {item?.approver_name}</span>
                                                         <br />
-                                                        <span style={{ color: '#ff0c34', marginLeft: '15px' }}>
-                                                            ข้อเสนอแนะ: {item?.approval_comments}
+                                                        <span style={{ color: '#ff0c34', marginLeft: 1 }}>
+                                                            • ข้อเสนอแนะ : {item?.approval_comments}
                                                         </span>
                                                         <br />
                                                         <span>
-                                                            [{moment(item?.created_at).format('DD-MM-YYYY')} เวลา:
+                                                            [{moment(item?.created_at).format('DD-MM-YYYY')} เวลา :
                                                             {moment(item?.created_at).format('HH:mm')}]
                                                         </span>
                                                     </Typography>{' '}
@@ -955,7 +956,7 @@ const Documents = () => {
                 <Dialog open={openDelete} fullWidth={true} maxWidth={'sm'}>
                     <DialogTitle>
                         <Typography variant="h3" sx={{ fontWeight: 500, color: 'red', textAlign: 'center' }}>
-                            แน่ใจที่ต้องการจะลบเอกสารหรือไม่
+                            ยืนยันการลบเอกสาร
                         </Typography>
                     </DialogTitle>
                     <DialogContent>
@@ -967,7 +968,7 @@ const Documents = () => {
                             variant="h3"
                             sx={{ fontWeight: 500, textAlign: 'center', marginTop: '20px', marginBottom: '20px', color: '#ff0c34' }}
                         >
-                            ยืนยันการลบเอกสาร
+                            เมื่อลบเอกสารแล้ว ไม่สามารถเรียกคืนได้
                         </Typography>
                         <Box textAlign="center" sx={{ marginTop: '20px', marginBottom: '20px' }}>
                             <Button variant="outlined" color="error" sx={{ borderRadius: 100 }} onClick={handleCloseDelete}>
@@ -992,8 +993,8 @@ const Documents = () => {
                         {activeStep === 0 && (
                             <form onSubmit={handleSubmit}>
                                 {/* editCode */}
-                                <Typography sx={{ marginTop: 3, fontSize: '16px' }}>รหัสเอกสาร:{editCode}</Typography>
-                                <Typography sx={{ marginTop: 3, fontSize: '16px' }}>ชื่อหัวข้อ</Typography>
+                                <Typography sx={{ marginTop: 3, fontSize: '16px', fontWeight: 600 }}>รหัสเอกสาร {editCode}</Typography>
+                                <Typography sx={{ marginTop: 3, fontSize: '16px' }}>ชื่อหัวข้อ :</Typography>
                                 <TextField
                                     margin="dense"
                                     id="name"
@@ -1005,7 +1006,7 @@ const Documents = () => {
                                 />
                                 <Typography sx={{ marginTop: 3, fontSize: '16px', display: 'inline-block' }}>
                                     รายละเอียด{' '}
-                                    <Typography sx={{ color: '#ff0c34', fontSize: '16px', display: 'inline-block' }}>(*ถ้ามี)</Typography>
+                                    <Typography sx={{ color: '#ff0c34', fontSize: '16px', display: 'inline-block' }}>(*ถ้ามี) :</Typography>
                                 </Typography>
 
                                 <TextField
@@ -1060,7 +1061,7 @@ const Documents = () => {
                                         <Grid container>
                                             <Grid xs={3}>
                                                 <Typography sx={{ fontWeight: 700, marginTop: '20px', fontSize: '16px' }}>
-                                                    รหัสเอกสาร
+                                                    รหัสเอกสาร :
                                                 </Typography>
                                             </Grid>
                                             <Grid xs={9}>
@@ -1068,7 +1069,7 @@ const Documents = () => {
                                             </Grid>
                                             <Grid xs={3}>
                                                 <Typography sx={{ fontWeight: 700, marginTop: '20px', fontSize: '16px' }}>
-                                                    ชื่อหัวข้อ
+                                                    ชื่อหัวข้อ :
                                                 </Typography>
                                             </Grid>
                                             <Grid xs={9}>
@@ -1089,7 +1090,7 @@ const Documents = () => {
                                                             fontWeight: 700
                                                         }}
                                                     >
-                                                        (*ถ้ามี)
+                                                        (*ถ้ามี) :
                                                     </Typography>
                                                 </Typography>
                                             </Grid>
@@ -1100,7 +1101,7 @@ const Documents = () => {
                                         <Grid container>
                                             <Grid xs={3}>
                                                 <Typography sx={{ fontWeight: 700, fontSize: '16px', marginTop: '20px' }}>
-                                                    แนบไฟล์เอกสาร
+                                                    แนบไฟล์เอกสาร :
                                                 </Typography>
                                             </Grid>
                                             <Grid xs={9}>

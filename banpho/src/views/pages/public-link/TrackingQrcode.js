@@ -46,17 +46,17 @@ const TrackingQrcode = () => {
     return (
         <div>
             <Grid sx={{ textAlign: 'center' }}>
-                <img src={logo} alt="logo" style={{ width: 200, marginBottom: 5 }} />
-                <p style={{ fontSize: '26px' }}>{params}</p>
-                <p style={{ fontSize: '26px' }}>{value.tracking_hospital}</p>
+                <img src={logo} alt="logo" style={{ width: 200, marginTop: 15 }} />
+                <p style={{ fontSize: '26px', fontWeight: 600 }}>{params}</p>
+                <p style={{ fontSize: '26px', fontWeight: 600 }}>{value.tracking_hospital}</p>
                 <Grid container sx={{ marginBottom: 3 }}>
-                    <Grid xs={6} sx={{ textAlign: 'right' }}>
-                        <span style={{ fontSize: '22px' }}>อุปกรณ์ที่นำส่ง:</span>
+                    <Grid xs={5.5} sx={{ textAlign: 'right' }}>
+                        <span style={{ fontSize: '22px' }}>อุปกรณ์ที่นำส่ง : </span>
                     </Grid>
                     <Grid xs={6} sx={{ textAlign: 'left' }}>
                         {equipment.map((item, index) => (
                             <span style={{ fontSize: '22px' }}>
-                                {index + 1}.{item.equipment_name} จำนวน {item.equipment_quantity} ชิ้น <br />
+                                {index + 1}.) {item.equipment_name} จำนวน : {item.equipment_quantity} ชิ้น <br />
                             </span>
                         ))}
                     </Grid>

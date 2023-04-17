@@ -125,7 +125,7 @@ const ProcessCard = ({ isLoading }) => {
                                 <Grid container alignItems="center">
                                     <Grid item>
                                         <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>
-                                            {count} ชิ้น
+                                            {count} รายการ
                                         </Typography>
                                     </Grid>
                                     <Grid item>
@@ -145,7 +145,7 @@ const ProcessCard = ({ isLoading }) => {
                             <Grid item sx={{ mb: 1.25 }}>
                                 <Typography
                                     sx={{
-                                        fontSize: '1rem',
+                                        fontSize: '1.3rem',
                                         fontWeight: 500,
                                         color: theme.palette.secondary[200]
                                     }}

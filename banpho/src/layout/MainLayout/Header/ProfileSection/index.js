@@ -177,11 +177,11 @@ const ProfileSection = () => {
                                     <Box sx={{ p: 2 }}>
                                         <Stack>
                                             <Stack direction="row" spacing={0.5} alignItems="center">
-                                                <Typography variant="h4">
+                                                <Typography variant="h3">
                                                     {user.user_firstname} {user.user_lastname}
                                                 </Typography>
                                             </Stack>
-                                            <Typography variant="subtitle2">{user.user_position}</Typography>
+                                            <Typography variant="subtitle">{user.user_position}</Typography>
                                         </Stack>
                                     </Box>
                                     <PerfectScrollbar style={{ height: '100%', maxHeight: 'calc(100vh - 250px)', overflowX: 'hidden' }}>
@@ -210,7 +210,7 @@ const ProfileSection = () => {
                                                     <ListItemIcon>
                                                         <IconLogout stroke={1.5} size="1.3rem" />
                                                     </ListItemIcon>
-                                                    <ListItemText primary={<Typography variant="body2">Logout</Typography>} />
+                                                    <ListItemText primary={<Typography variant="body2">ออกจากระบบ</Typography>} />
                                                 </ListItemButton>
                                             </List>
                                         </Box>

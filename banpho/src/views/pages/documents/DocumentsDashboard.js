@@ -39,7 +39,7 @@ const DocumentsDashboard = () => {
                 <Grid container spacing={gridSpacing}>
                     <Grid item xs={12} md={12}>
                         <Typography variant="h2" sx={{ marginBottom: '20px' }}>
-                            ข้อมูลเอกสารในแต่ละวันหรืออาทิตย์หรือเดือน
+                            ข้อมูลเอกสารในแต่ละเดือน
                         </Typography>
                         <TotalGrowthBarChart isLoading={isLoading} />
                     </Grid>

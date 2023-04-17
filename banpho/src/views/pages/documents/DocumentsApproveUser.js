@@ -275,11 +275,11 @@ const DocumentsApproveUser = () => {
         <div>
             <Card sx={{ minWidth: 275, minHeight: '100vh' }}>
                 <div className="header-show-detail" style={{ backgroundColor: '#086c3c', padding: '15px' }}>
-                    <Typography variant="h3" sx={{ fontWeight: 500, color: '#fff' }}>
+                    <Typography variant="h3" sx={{ fontWeight: 500, color: '#fff', textAlign: 'center' }}>
                         อนุมัติเรียบร้อย
                     </Typography>
                 </div>
-                <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 3, marginTop: 3 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 20, marginTop: 3 }}>
                     <Typography sx={{ fontWeight: 500 }}>ค้นหา</Typography>
                     <TextField
                         margin="dense"
@@ -301,8 +301,8 @@ const DocumentsApproveUser = () => {
                         padding: '30px'
                     }}
                 >
-                    <TableContainer sx={{ maxHeight: 440 }}>
-                        <Table stickyHeader aria-label="sticky table">
+                    <TableContainer>
+                        <Table>
                             <TableHead>
                                 <TableRow>
                                     {columns.map((column) => (
@@ -355,8 +355,8 @@ const DocumentsApproveUser = () => {
                                 <Grid item xs={12}>
                                     {document?.document_version > 1 ? (
                                         <>
-                                            <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#ff0c34' }}>
-                                                แก้ไขครั้งที่: {document?.document_version - 1}
+                                            <Typography sx={{ fontSize: '16px', fontWeight: '600', color: '#ff0c34' }}>
+                                                แก้ไขครั้งที่ : {document?.document_version - 1}
                                             </Typography>
                                             <br />
                                         </>
@@ -365,7 +365,7 @@ const DocumentsApproveUser = () => {
                                     )}
                                 </Grid>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>เลขที่เอกสาร</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>เลขที่เอกสาร :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>{history.code}</Typography>
@@ -374,7 +374,7 @@ const DocumentsApproveUser = () => {
 
                             <Grid container sx={{ padding: '15px', backgroundColor: '#f2f2f2' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>ผู้ส่ง</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>ผู้ส่ง :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>{history.reporter}</Typography>
@@ -383,7 +383,7 @@ const DocumentsApproveUser = () => {
 
                             <Grid container sx={{ padding: '15px' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>วันที่ส่ง</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>วันที่ส่ง :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>{history.date}</Typography>
@@ -392,7 +392,7 @@ const DocumentsApproveUser = () => {
 
                             <Grid container sx={{ padding: '15px', backgroundColor: '#f2f2f2' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>ไฟล์เอกสาร</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>ไฟล์เอกสาร :</Typography>
                                 </Grid>
                                 <Grid item container xs={9} alignItems="center">
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>
@@ -410,7 +410,7 @@ const DocumentsApproveUser = () => {
 
                             <Grid container sx={{ padding: '15px' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>รายละเอียด</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>รายละเอียด :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>
@@ -421,7 +421,7 @@ const DocumentsApproveUser = () => {
 
                             <Grid container sx={{ padding: '15px', backgroundColor: '#f2f2f2' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>สถานะการอนุมัติ</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>สถานะการอนุมัติ :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Stepper activeStep={activeStepDoc} orientation="vertical" sx={{ marginTop: 3 }}>
@@ -460,18 +460,18 @@ const DocumentsApproveUser = () => {
                                 <>
                                     <Grid container sx={{ padding: '15px' }}>
                                         <Grid item xs={3}>
-                                            <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>
-                                                ประวัติการอนุมัติ
+                                            <Typography sx={{ fontSize: '15px', fontWeight: '600', color: '#086c3c' }}>
+                                                ประวัติการอนุมัติ :
                                             </Typography>
                                         </Grid>
                                         <Grid item xs={9}>
                                             <Typography sx={{ fontSize: '16px', color: '#086c3c' }}>ผู้อำนวยการโรงพยาบาล</Typography>
                                             <Typography sx={{ fontSize: '14px', marginLeft: 4 }}>
                                                 <span style={{ color: '#086c3c' }}>• ผ่านการอนุมัติ</span>
-                                                <span style={{ marginLeft: '15px' }}>คุณ: {approver[0]?.approver_name}</span>
+                                                <span style={{ marginLeft: '15px' }}>คุณ : {approver[0]?.approver_name}</span>
                                                 <br />
                                                 <span>
-                                                    [{moment(approver[0]?.created_at).format('DD-MM-YYYY')} เวลา:{' '}
+                                                    [{moment(approver[0]?.created_at).format('DD-MM-YYYY')} เวลา :{' '}
                                                     {moment(approver[0]?.created_at).format('HH:mm')}]
                                                 </span>
                                             </Typography>
@@ -482,10 +482,10 @@ const DocumentsApproveUser = () => {
                                                     </Typography>
                                                     <Typography sx={{ fontSize: '14px', marginLeft: 4 }}>
                                                         <span style={{ color: '#086c3c' }}>• ผ่านการอนุมัติ</span>
-                                                        <span style={{ marginLeft: '15px' }}>คุณ: {approver[1]?.approver_name}</span>
+                                                        <span style={{ marginLeft: '15px' }}>คุณ : {approver[1]?.approver_name}</span>
                                                         <br />
                                                         <span>
-                                                            [{moment(approver[1]?.created_at).format('DD-MM-YYYY')} เวลา:{' '}
+                                                            [{moment(approver[1]?.created_at).format('DD-MM-YYYY')} เวลา :{' '}
                                                             {moment(approver[1]?.created_at).format('HH:mm')}]
                                                         </span>
                                                     </Typography>
@@ -498,11 +498,11 @@ const DocumentsApproveUser = () => {
                                                         ผู้ช่วยสาธารณสุขอำเภอบ้านโพธิ์
                                                     </Typography>
                                                     <Typography sx={{ fontSize: '14px', marginLeft: 4 }}>
-                                                        <span style={{ color: '#086c3c', marginLeft: 4 }}>• ผ่านการอนุมัติ</span>
-                                                        <span style={{ marginLeft: '15px' }}>คุณ: {approver[2]?.approver_name}</span>
+                                                        <span style={{ color: '#086c3c' }}>• ผ่านการอนุมัติ</span>
+                                                        <span style={{ marginLeft: '15px' }}>คุณ : {approver[2]?.approver_name}</span>
                                                         <br />
                                                         <span>
-                                                            [{moment(approver[2]?.created_at).format('DD-MM-YYYY')} เวลา:{' '}
+                                                            [{moment(approver[2]?.created_at).format('DD-MM-YYYY')} เวลา :{' '}
                                                             {moment(approver[2]?.created_at).format('HH:mm')}]
                                                         </span>
                                                     </Typography>
@@ -514,12 +514,12 @@ const DocumentsApproveUser = () => {
                                                     <Typography sx={{ fontSize: '16px', color: '#086c3c', marginTop: 2 }}>
                                                         สาธารณสุขอำเภอบ้านโพธิ์
                                                     </Typography>
-                                                    <Typography>
-                                                        <span style={{ color: '#086c3c', marginLeft: 4 }}>• ผ่านการอนุมัติ</span>
-                                                        <span style={{ marginLeft: '15px' }}>คุณ: {approver[3]?.approver_name}</span>
+                                                    <Typography sx={{ fontSize: '14px', marginLeft: 4 }}>
+                                                        <span style={{ color: '#086c3c' }}>• ผ่านการอนุมัติ</span>
+                                                        <span style={{ marginLeft: '15px' }}>คุณ : {approver[3]?.approver_name}</span>
                                                         <br />
                                                         <span>
-                                                            [{moment(approver[3]?.created_at).format('DD-MM-YYYY')} เวลา:{' '}
+                                                            [{moment(approver[3]?.created_at).format('DD-MM-YYYY')} เวลา :{' '}
                                                             {moment(approver[3]?.created_at).format('HH:mm')}]
                                                         </span>
                                                     </Typography>
@@ -531,10 +531,10 @@ const DocumentsApproveUser = () => {
                             )}
                             {disapprover.length > 0 && (
                                 <>
-                                    <Grid container sx={{ padding: '15px' }}>
+                                    <Grid container sx={{ padding: '15px', backgroundColor: '#f2f2f2' }}>
                                         <Grid item xs={3}>
-                                            <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#ff0c34' }}>
-                                                ประวัติการไม่อนุมัติ
+                                            <Typography sx={{ fontSize: '15px', fontWeight: '600', color: '#ff0c34', marginTop: 2 }}>
+                                                ประวัติการไม่อนุมัติ :
                                             </Typography>
                                         </Grid>
                                         <Grid item xs={9}>
@@ -542,42 +542,42 @@ const DocumentsApproveUser = () => {
                                                 <>
                                                     {item.approver_id === 2 && (
                                                         <>
-                                                            <Typography sx={{ fontSize: '16px', color: '#086c3c' }}>
+                                                            <Typography sx={{ fontSize: '16px', color: '#086c3c', marginTop: 2 }}>
                                                                 ผู้อำนวยการโรงพยาบาล
                                                             </Typography>
                                                         </>
                                                     )}
                                                     {item.approver_id === 3 && (
                                                         <>
-                                                            <Typography sx={{ fontSize: '16px', color: '#086c3c' }}>
+                                                            <Typography sx={{ fontSize: '16px', color: '#086c3c', marginTop: 2 }}>
                                                                 เจ้าหน้าที่สาธารณสุขอำเภอบ้านโพธิ์
                                                             </Typography>
                                                         </>
                                                     )}
                                                     {item.approver_id === 4 && (
                                                         <>
-                                                            <Typography sx={{ fontSize: '16px', color: '#086c3c' }}>
+                                                            <Typography sx={{ fontSize: '16px', color: '#086c3c', marginTop: 2 }}>
                                                                 ผู้ช่วยสาธารณสุขอำเภอบ้านโพธิ์
                                                             </Typography>
                                                         </>
                                                     )}
                                                     {item.approver_id === 5 && (
                                                         <>
-                                                            <Typography sx={{ fontSize: '16px', color: '#086c3c' }}>
+                                                            <Typography sx={{ fontSize: '16px', color: '#086c3c', marginTop: 2 }}>
                                                                 สาธารณสุขอำเภอบ้านโพธิ์
                                                             </Typography>
                                                         </>
                                                     )}
-                                                    <Typography sx={{ fontSize: '14px' }}>
-                                                        <span style={{ color: '#ff0c34', marginLeft: '15px' }}>• ไม่ผ่านการอนุมัติ</span>
-                                                        <span style={{ marginLeft: '15px' }}>({item?.approver_name})</span>
+                                                    <Typography sx={{ fontSize: '15px', marginLeft: 4 }}>
+                                                        <span style={{ color: '#ff0c34' }}>• ไม่ผ่านการอนุมัติ</span>
+                                                        <span style={{ marginLeft: '15px' }}>คุณ : {item?.approver_name}</span>
                                                         <br />
-                                                        <span style={{ color: '#ff0c34', marginLeft: '15px' }}>
-                                                            ข้อเสนอแนะ: {item?.approval_comments}
+                                                        <span style={{ color: '#ff0c34', marginLeft: 1 }}>
+                                                            • ข้อเสนอแนะ : {item?.approval_comments}
                                                         </span>
                                                         <br />
                                                         <span>
-                                                            [{moment(item?.created_at).format('DD-MM-YYYY')} เวลา:
+                                                            [{moment(item?.created_at).format('DD-MM-YYYY')} เวลา :
                                                             {moment(item?.created_at).format('HH:mm')}]
                                                         </span>
                                                     </Typography>{' '}

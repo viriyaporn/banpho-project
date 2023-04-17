@@ -69,7 +69,7 @@ const Tracking = () => {
         // const id = value.user_id;
         //
         const id = value.hospital_id;
-        const status = 'จัดส่งอุปกรณ์และเครื่องมือ';
+        const status = 'จัดส่งอุปกรณ์-เครื่องมือการแพทย์';
         axios
             .get(`http://localhost:7000/tracking/${id}/${status}`)
             .then((response) => {
@@ -108,9 +108,9 @@ const Tracking = () => {
                 console.log(response.data);
                 setHistory(response.data.data[0]);
                 let status = response.data.data[0].tracking_status;
-                if (status == 'จัดส่งอุปกรณ์และเครื่องมือ') {
+                if (status == 'จัดส่งอุปกรณ์-เครื่องมือการแพทย์') {
                     setActiveStepTracking(1);
-                } else if (status == 'รับอุปกรณ์ฆ่าเชื้อเรียบร้อย') {
+                } else if (status == 'กระบวนการฆ่าเชื้อ') {
                     setActiveStepTracking(2);
                 } else if (status == 'เสร็จสิ้น') {
                     setActiveStepTracking(3);
@@ -165,10 +165,10 @@ const Tracking = () => {
     // ชื่อสเต็ป
     const stepsTracking = [
         {
-            label: 'จัดส่งอุปกรณ์และเครื่องมือ'
+            label: 'จัดส่งอุปกรณ์-เครื่องมือการแพทย์'
         },
         {
-            label: 'รับอุปกรณ์ฆ่าเชื้อเรียบร้อย'
+            label: 'กระบวนการฆ่าเชื้อ'
         },
         {
             label: 'เสร็จสิ้น'
@@ -306,12 +306,14 @@ const Tracking = () => {
     return (
         <div>
             <Card sx={{ minWidth: 275, minHeight: '100vh' }}>
-                <Typography variant="h3" sx={{ fontWeight: 500, textAlign: 'center', marginTop: '20px' }}>
-                    จัดส่งอุปกรณ์การแพทย์
-                </Typography>
+                <div className="header-show-detail" style={{ backgroundColor: '#086c3c', padding: '15px' }}>
+                    <Typography variant="h3" sx={{ fontWeight: 500, color: '#fff', textAlign: 'center' }}>
+                        จัดส่งอุปกรณ์-เครื่องมือการแพทย์
+                    </Typography>
+                </div>
                 {/* ช่องค้นหา */}
-                <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 3, marginTop: 3 }}>
-                    <Typography sx={{ fontWeight: 500 }}>ค้นหา</Typography>
+                <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 5, marginTop: 3 }}>
+                    <Typography sx={{ fontWeight: 500 }}>ค้นหา </Typography>
                     <TextField
                         margin="dense"
                         id="search"
@@ -319,14 +321,14 @@ const Tracking = () => {
                         variant="outlined"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        sx={{ marginLeft: 3, width: '75%' }}
+                        sx={{ marginLeft: 2, width: '75%' }}
                     />
                 </Box>
                 {/* สร้างชุด Tracking */}
                 <Button
                     variant="outlined"
                     onClick={handleClickOpen}
-                    sx={{ float: 'right', marginRight: '20px', marginTop: '20px', marginBottom: '20px' }}
+                    sx={{ float: 'right', marginRight: 5 }}
                     color="success"
                     startIcon={<AddCircleIcon />}
                 >
@@ -455,7 +457,7 @@ const Tracking = () => {
                                                         {item.name}
                                                     </Grid>
                                                     <Grid item xs={4} style={{ fontSize: '16px' }}>
-                                                        จำนวน: {item.quantity}
+                                                        จำนวน : {item.quantity}
                                                     </Grid>
                                                     <Grid item xs={2}>
                                                         <IconButton onClick={() => handleDeleteEquipment(key)} color="error" size="small">
@@ -493,33 +495,33 @@ const Tracking = () => {
                             <>
                                 <Typography
                                     variant="h3"
-                                    sx={{ fontWeight: 500, textAlign: 'center', marginTop: '20px', marginBottom: '20px' }}
+                                    sx={{ fontWeight: 600, textAlign: 'left', marginTop: '3px', marginBottom: '30px', color: '#086c3c' }}
                                 >
-                                    รายการทั้งหมด
+                                    ตรวจสอบรายการทั้งหมด
                                 </Typography>
                                 {equipment.map((item, key) => (
-                                    <li style={{ fontSize: '16px', marginTop: '10px', listStyle: 'none' }} key={key}>
+                                    <li style={{ fontSize: '18px', marginTop: '10px', listStyle: 'none' }} key={key}>
                                         <Grid container>
-                                            <Grid item xs={1} style={{ fontSize: '16px' }}>
-                                                {key + 1}.
+                                            <Grid item xs={1} style={{ fontSize: '18px' }}>
+                                                {key + 1} .
                                             </Grid>
-                                            <Grid item xs={5} style={{ fontSize: '16px' }}>
+                                            <Grid item xs={5} style={{ fontSize: '18px' }}>
                                                 {item.name}
                                             </Grid>
-                                            <Grid item xs={4} style={{ fontSize: '16px' }}>
-                                                จำนวน: {item.quantity}
+                                            <Grid item xs={4} style={{ fontSize: '18px' }}>
+                                                จำนวน : {item.quantity}
                                             </Grid>
                                         </Grid>
                                     </li>
                                 ))}
-                                <Box textAlign="center" sx={{ marginTop: '20px', marginBottom: '20px' }}>
+                                <Box textAlign="center" sx={{ marginTop: '45px', marginBottom: '20px' }}>
                                     <Button variant="outlined" color="error" sx={{ borderRadius: 100 }} onClick={handleBack}>
                                         ย้อนกลับ
                                     </Button>
                                     <Button
                                         variant="outlined"
                                         color="success"
-                                        sx={{ marginLeft: 3, borderRadius: 100 }}
+                                        sx={{ marginLeft: 6, borderRadius: 100 }}
                                         onClick={handleNext}
                                     >
                                         ต่อไป
@@ -535,11 +537,11 @@ const Tracking = () => {
 
                                 <Typography
                                     variant="h3"
-                                    sx={{ fontWeight: 500, textAlign: 'center', marginTop: '20px', marginBottom: '20px', color: '#ff0c34' }}
+                                    sx={{ fontWeight: 500, textAlign: 'center', marginTop: '10px', marginBottom: '20px', color: '#ff0c34' }}
                                 >
                                     ยืนยันการส่งข้อมูล
                                 </Typography>
-                                <Box textAlign="center" sx={{ marginTop: '20px', marginBottom: '20px' }}>
+                                <Box textAlign="center" sx={{ marginTop: '30px', marginBottom: '20px' }}>
                                     <Button variant="outlined" color="error" sx={{ borderRadius: 100 }} onClick={handleBack}>
                                         ย้อนกลับ
                                     </Button>
@@ -574,7 +576,7 @@ const Tracking = () => {
                         <DialogContentText id="alert-dialog-description">
                             <Grid container sx={{ marginTop: 3, padding: '15px' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>ผู้ส่ง</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>ผู้ส่ง :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>
@@ -585,7 +587,7 @@ const Tracking = () => {
 
                             <Grid container sx={{ padding: '15px', backgroundColor: '#f2f2f2' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>รหัสชุด</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>รหัสชุด :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>{history.group_id}</Typography>
@@ -594,7 +596,7 @@ const Tracking = () => {
 
                             <Grid container sx={{ padding: '15px' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>วันที่ส่ง</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>วันที่ส่ง :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>
@@ -606,7 +608,7 @@ const Tracking = () => {
 
                             <Grid container sx={{ padding: '15px', backgroundColor: '#f2f2f2' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>อุปกรณ์ที่ส่ง</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>อุปกรณ์ที่ส่ง :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>
@@ -621,7 +623,7 @@ const Tracking = () => {
 
                             <Grid container sx={{ padding: '15px' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>สถานะ</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>สถานะ :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>
@@ -632,7 +634,7 @@ const Tracking = () => {
 
                             <Grid container sx={{ padding: '15px', backgroundColor: '#f2f2f2' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>สถานะการอนุมัติ</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>สถานะการอนุมัติ :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Stepper activeStep={activeStepTracking} orientation="vertical" sx={{ marginTop: 3 }}>
@@ -670,7 +672,7 @@ const Tracking = () => {
                                                                 <>
                                                                     <br />
                                                                     <span style={{ color: 'red' }}>
-                                                                        ผู้รับอุปกรณ์: {history.tracking_recipient}
+                                                                        ผู้รับอุปกรณ์ : {history.tracking_recipient}
                                                                     </span>
                                                                 </>
                                                             ) : (
@@ -680,7 +682,7 @@ const Tracking = () => {
                                                                 <>
                                                                     <br />
                                                                     <span style={{ color: 'red' }}>
-                                                                        วันนัดรับอุปกรณ์:
+                                                                        วันนัดรับอุปกรณ์ :
                                                                         {moment(history.tracking_meet_date).format('DD-MM-YYYY')}
                                                                     </span>
                                                                 </>
@@ -697,7 +699,7 @@ const Tracking = () => {
                                                                 <>
                                                                     <br />
                                                                     <span style={{ color: 'red' }}>
-                                                                        ผู้รับอุปกรณ์: {history.tracking_sender}
+                                                                        ผู้รับอุปกรณ์ : {history.tracking_sender}
                                                                     </span>
                                                                 </>
                                                             ) : (
@@ -707,7 +709,7 @@ const Tracking = () => {
                                                                 <>
                                                                     <br />
                                                                     <span style={{ color: 'red' }}>
-                                                                        วันรับอุปกรณ์:
+                                                                        วันรับอุปกรณ์ :
                                                                         {moment(history.tracking_meet_date).format('DD-MM-YYYY')}
                                                                     </span>
                                                                 </>

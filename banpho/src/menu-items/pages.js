@@ -63,7 +63,7 @@ if (role === 'hospital staff') {
             children: [
                 {
                     id: 'dashboard-tracking',
-                    title: 'Dashboard',
+                    title: 'หน้าหลัก',
                     type: 'item',
                     url: '/dashboard-tracking',
                     target: true
@@ -99,7 +99,7 @@ if (role === 'hospital staff') {
             children: [
                 {
                     id: 'dashboard-document',
-                    title: 'Dashboard',
+                    title: 'หน้าหลัก',
                     type: 'item',
                     icon: icons.IconHomeSignal,
                     IconFileOff,

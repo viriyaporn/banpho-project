@@ -136,10 +136,12 @@ const DocumentsDisapprove = () => {
     return (
         <div>
             <Card sx={{ minWidth: 275, minHeight: '100vh' }}>
-                <Typography variant="h3" sx={{ fontWeight: 500, textAlign: 'center', marginTop: '20px' }}>
-                    ไม่อนุมัติ
-                </Typography>
-                <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 3, marginTop: 3 }}>
+                <div className="headrt-show-detail" style={{ backgroundColor: '#086c3c', padding: '15px' }}>
+                    <Typography variant="h3" sx={{ fontWeight: 500, textAlign: 'center', color: '#fff' }}>
+                        ไม่อนุมัติ
+                    </Typography>
+                </div>
+                <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 20, marginTop: 3 }}>
                     <Typography sx={{ fontWeight: 500 }}>ค้นหา</Typography>
                     <TextField
                         margin="dense"

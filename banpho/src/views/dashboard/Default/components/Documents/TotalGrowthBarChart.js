@@ -112,7 +112,7 @@ const TotalGrowthBarChart = ({ isLoading }) => {
             },
             legend: {
                 show: true,
-                fontSize: '14px',
+                fontSize: '18px',
                 fontFamily: `'Kanit', sans-serif`,
                 position: 'bottom',
                 offsetX: 20,
@@ -141,7 +141,7 @@ const TotalGrowthBarChart = ({ isLoading }) => {
         },
         series: [
             {
-                name: 'อยู่ในกระบวนการ',
+                name: 'รอการอนุมัติ',
                 data: [
                     process[0]?.count,
                     process[1]?.count,

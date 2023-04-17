@@ -95,9 +95,11 @@ const Notification = () => {
 
     return (
         <Card sx={{ minWidth: 275, minHeight: '100vh' }}>
-            <Typography variant="h3" sx={{ fontWeight: 500, textAlign: 'center', marginTop: '20px' }}>
-                การแจ้งเตือน
-            </Typography>
+            <div className="header-show-detail" style={{ backgroundColor: '#086c3c', padding: '15px' }}>
+                <Typography variant="h3" sx={{ fontWeight: 500, textAlign: 'center', color: '#fff' }}>
+                    การแจ้งเตือน
+                </Typography>
+            </div>
             <Button
                 variant="outlined"
                 onClick={readAll}

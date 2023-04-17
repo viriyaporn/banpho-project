@@ -51,7 +51,7 @@ const DashboardTracking = () => {
                     <Grid item xs={12} md={12}>
                         <div className="" style={{ padding: 10 }}></div>
                         <Typography variant="h2" sx={{ marginBottom: '20px' }}>
-                            ข้อมูลการส่งในแต่ละวันหรืออาทิตย์หรือเดือน
+                            ข้อมูลการส่งในแต่ละเดือน
                         </Typography>
                         <TotalGrowthBarChart isLoading={isLoading} />
                     </Grid>

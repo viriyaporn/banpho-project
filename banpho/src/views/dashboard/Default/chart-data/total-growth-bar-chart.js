@@ -38,7 +38,7 @@ const chartData = {
         },
         legend: {
             show: true,
-            fontSize: '14px',
+            fontSize: '18px',
             fontFamily: `'Kanit', sans-serif`,
             position: 'bottom',
             offsetX: 20,
@@ -67,7 +67,7 @@ const chartData = {
     },
     series: [
         {
-            name: 'อยู่ในกระบวนการ',
+            name: 'อยู่ในกระบวนการฆ่าเชื้อ',
             data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {

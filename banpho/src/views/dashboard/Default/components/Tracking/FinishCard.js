@@ -141,7 +141,7 @@ const FinishCard = ({ isLoading }) => {
                             <Grid item sx={{ mb: 1.25 }}>
                                 <Typography
                                     sx={{
-                                        fontSize: '1rem',
+                                        fontSize: '1.3rem',
                                         fontWeight: 500,
                                         color: '#fff'
                                     }}

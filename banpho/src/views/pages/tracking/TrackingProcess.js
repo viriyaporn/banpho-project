@@ -66,7 +66,7 @@ const TrackingProcess = () => {
 
     function getData(value) {
         const id = value.hospital_id;
-        const status = 'รับอุปกรณ์ฆ่าเชื้อเรียบร้อย';
+        const status = 'กระบวนการฆ่าเชื้อ';
         axios
             .get(`http://localhost:7000/tracking/${id}/${status}`)
             .then((response) => {
@@ -104,9 +104,9 @@ const TrackingProcess = () => {
                 console.log(response.data);
                 setHistory(response.data.data[0]);
                 let status = response.data.data[0].tracking_status;
-                if (status == 'จัดส่งอุปกรณ์และเครื่องมือ') {
+                if (status == 'จัดส่งอุปกรณ์-เครื่องมือการแพทย์') {
                     setActiveStepTracking(1);
-                } else if (status == 'รับอุปกรณ์ฆ่าเชื้อเรียบร้อย') {
+                } else if (status == 'กระบวนการฆ่าเชื้อ') {
                     setActiveStepTracking(2);
                 } else if (status == 'เสร็จสิ้น') {
                     setActiveStepTracking(3);
@@ -152,10 +152,10 @@ const TrackingProcess = () => {
 
     const stepsTracking = [
         {
-            label: 'จัดส่งอุปกรณ์และเครื่องมือ'
+            label: 'จัดส่งอุปกรณ์-เครื่องมือการแพทย์'
         },
         {
-            label: 'รับอุปกรณ์ฆ่าเชื้อเรียบร้อย'
+            label: 'กระบวนการฆ่าเชื้อ'
         },
         {
             label: 'เสร็จสิ้น'
@@ -240,10 +240,12 @@ const TrackingProcess = () => {
     return (
         <div>
             <Card sx={{ minWidth: 275, minHeight: '100vh' }}>
-                <Typography variant="h3" sx={{ fontWeight: 500, textAlign: 'center', marginTop: '20px' }}>
-                    กระบวนการฆ่าเชื้อ
-                </Typography>
-                <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 3, marginTop: 3 }}>
+                <div className="header-show-detal" style={{ backgroundColor: '#086c3c', padding: '15px' }}>
+                    <Typography variant="h3" sx={{ fontWeight: 500, textAlign: 'center', color: '#fff' }}>
+                        กระบวนการฆ่าเชื้อ
+                    </Typography>
+                </div>
+                <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 20, marginTop: 3 }}>
                     <Typography sx={{ fontWeight: 500 }}>ค้นหา</Typography>
                     <TextField
                         margin="dense"
@@ -318,7 +320,7 @@ const TrackingProcess = () => {
                         <DialogContentText id="alert-dialog-description">
                             <Grid container sx={{ marginTop: 3, padding: '15px' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>ผู้ส่ง</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>ผู้ส่ง :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>
@@ -329,7 +331,7 @@ const TrackingProcess = () => {
 
                             <Grid container sx={{ padding: '15px', backgroundColor: '#f2f2f2' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>รหัสชุด</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>รหัสชุด :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>{history.group_id}</Typography>
@@ -338,7 +340,7 @@ const TrackingProcess = () => {
 
                             <Grid container sx={{ padding: '15px' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>วันที่ส่ง</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>วันที่ส่ง :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>
@@ -349,13 +351,13 @@ const TrackingProcess = () => {
 
                             <Grid container sx={{ padding: '15px', backgroundColor: '#f2f2f2' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>อุปกรณ์ที่ส่ง</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>อุปกรณ์ที่ส่ง :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>
                                         {showItem.map((item, key) => (
                                             <li style={{ fontSize: '16px' }} key={key}>
-                                                {item.equipment_name} จำนวน: {item.equipment_quantity}
+                                                {item.equipment_name} จำนวน : {item.equipment_quantity}
                                             </li>
                                         ))}
                                     </Typography>
@@ -364,7 +366,7 @@ const TrackingProcess = () => {
 
                             <Grid container sx={{ padding: '15px' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>สถานะ</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>สถานะ :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>
@@ -375,7 +377,7 @@ const TrackingProcess = () => {
 
                             <Grid container sx={{ padding: '15px', backgroundColor: '#f2f2f2' }}>
                                 <Grid item xs={3}>
-                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>สถานะการอนุมัติ</Typography>
+                                    <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#000' }}>สถานะการอนุมัติ :</Typography>
                                 </Grid>
                                 <Grid item xs={9}>
                                     <Stepper activeStep={activeStepTracking} orientation="vertical" sx={{ marginTop: 3 }}>
@@ -413,7 +415,7 @@ const TrackingProcess = () => {
                                                                 <>
                                                                     <br />
                                                                     <span style={{ color: 'red' }}>
-                                                                        ผู้รับอุปกรณ์: {history.tracking_recipient}
+                                                                        ผู้รับอุปกรณ์ : {history.tracking_recipient}
                                                                     </span>
                                                                 </>
                                                             ) : (
@@ -423,7 +425,7 @@ const TrackingProcess = () => {
                                                                 <>
                                                                     <br />
                                                                     <span style={{ color: 'red' }}>
-                                                                        วันนัดรับอุปกรณ์:
+                                                                        วันนัดรับอุปกรณ์ :
                                                                         {moment(history.tracking_meet_date).format('DD-MM-YYYY')}
                                                                     </span>
                                                                 </>
@@ -440,7 +442,7 @@ const TrackingProcess = () => {
                                                                 <>
                                                                     <br />
                                                                     <span style={{ color: 'red' }}>
-                                                                        ผู้รับอุปกรณ์: {history.tracking_sender}
+                                                                        ผู้รับอุปกรณ์ : {history.tracking_sender}
                                                                     </span>
                                                                 </>
                                                             ) : (
@@ -450,7 +452,7 @@ const TrackingProcess = () => {
                                                                 <>
                                                                     <br />
                                                                     <span style={{ color: 'red' }}>
-                                                                        วันรับอุปกรณ์:
+                                                                        วันรับอุปกรณ์ :
                                                                         {moment(history.tracking_meet_date).format('DD-MM-YYYY')}
                                                                     </span>
                                                                 </>

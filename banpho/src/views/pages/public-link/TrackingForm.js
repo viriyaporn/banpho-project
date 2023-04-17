@@ -126,7 +126,7 @@ const TrackingForm = () => {
             });
     };
 
-    return status == 'จัดส่งอุปกรณ์และเครื่องมือ' ? (
+    return status == 'จัดส่งอุปกรณ์-เครื่องมือการแพทย์' ? (
         <ThemeProvider theme={styles}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
@@ -207,7 +207,7 @@ const TrackingForm = () => {
                         </Typography>
                         {checkDate ? (
                             <Typography sx={{ color: 'red', textAlign: 'center' }}>
-                                กรุณาตรวจสอบวันที่เนื่องจากวันที่ที่ระบุไม่ถูกต้อง
+                                วันที่ที่ระบุไม่ถูกต้อง กรุณาระบุใหม่อีกครั้ง
                             </Typography>
                         ) : null}
                         <Box textAlign="center" sx={{ marginTop: '20px', marginBottom: '20px' }}>
@@ -222,7 +222,7 @@ const TrackingForm = () => {
                 </Dialog>
             </Container>
         </ThemeProvider>
-    ) : status === 'รับอุปกรณ์ฆ่าเชื้อเรียบร้อย' ? (
+    ) : status === 'กระบวนการฆ่าเชื้อ' ? (
         <ThemeProvider theme={styles}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />

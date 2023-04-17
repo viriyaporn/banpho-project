@@ -21,7 +21,7 @@ const Logo = () => {
          * <img src={logo} alt="Berry" width="100" />
          *
          */
-        <img src={logo} alt="Logo" width="150" />
+        <img src={logo} alt="Logo" width="200" />
     );
 };
 

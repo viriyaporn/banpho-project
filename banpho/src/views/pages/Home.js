@@ -38,30 +38,30 @@ const Home = () => {
     return (
         <div>
             <div style={{ textAlign: 'center' }}>
-                <img src={logo} alt="logoLogin" style={{ width: 250, height: 200, marginBottom: 10 }} />
+                <img src={logo} alt="logoLogin" style={{ width: 230, height: 230, marginBottom: 10 }} />
             </div>
 
             <Typography
                 variant="h2"
-                sx={{ fontWeight: 700, textAlign: 'center', marginTop: '20px', marginBottom: '15px', color: '#086c3c' }}
+                sx={{ fontWeight: 700, textAlign: 'center', marginTop: '20px', marginBottom: '25px', color: '#086c3c' }}
             >
                 ระบบสารสนเทศเพื่อสนับสนุนการปฏิบัติงาน สำนักงานสาธารณสุขอำเภอบ้านโพธิ์จังหวัดฉะเชิงเทรา
             </Typography>
             <Grid container>
                 <Grid xs={6} sx={{ textAlign: 'center' }} onClick={() => navigate('/tracking')}>
-                    <img src={menuLeft} alt="logoLogin" style={{ width: 300, height: 250, marginBottom: 20 }} />
+                    <img src={menuLeft} alt="logoLogin" style={{ width: 250, height: 200, marginBottom: 20 }} />
                     <Typography
                         variant="h3"
-                        sx={{ fontWeight: 700, color: '#086c3c', textAlign: 'center', marginTop: '20px', marginBottom: '20px' }}
+                        sx={{ fontWeight: 700, color: '#086c3c', textAlign: 'center', marginTop: '15px', marginBottom: '20px' }}
                     >
                         ระบบติดตามอุปกรณ์ - เครื่องมือการแพทย์
                     </Typography>
                 </Grid>
                 <Grid xs={6} sx={{ textAlign: 'center' }} onClick={() => navigate('/documents')}>
-                    <img src={menuRight} alt="logoLogin" style={{ width: 300, height: 250, marginBottom: 20 }} />
+                    <img src={menuRight} alt="logoLogin" style={{ width: 250, height: 200, marginBottom: 30 }} />
                     <Typography
                         variant="h3"
-                        sx={{ fontWeight: 700, color: '#086c3c', textAlign: 'center', marginTop: '20px', marginBottom: '20px' }}
+                        sx={{ fontWeight: 700, color: '#086c3c', textAlign: 'center', marginTop: '10px', marginBottom: '20px' }}
                     >
                         ระบบจัดการงานสารบรรณ
                     </Typography>

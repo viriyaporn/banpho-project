@@ -161,7 +161,7 @@ app.post("/create-tracking", jsonParser, (req, res) => {
       place,
       sender,
       date,
-      "จัดส่งอุปกรณ์และเครื่องมือ",
+      "จัดส่งอุปกรณ์-เครื่องมือการแพทย์",
       user_id,
       hospital_id,
     ],
@@ -255,7 +255,7 @@ app.put("/tracking/:id", jsonParser, (req, res) => {
   }
   connection.query(
     "UPDATE tracking SET tracking_recipient = ?, tracking_meet_date = ?,tracking_status = ? WHERE group_id = ?",
-    [tracking_recipient, tracking_meet, "รับอุปกรณ์ฆ่าเชื้อเรียบร้อย", id],
+    [tracking_recipient, tracking_meet, "กระบวนการฆ่าเชื้อ", id],
     function (err, results) {
       if (err) {
         res.json({ status: "error", message: err });
@@ -272,7 +272,7 @@ app.put("/tracking/:id", jsonParser, (req, res) => {
           }
           // ส่งNotification แจ้งเตือนว่านัดรับวันนี้นะ
           const created_at = moment().format("YYYY-MM-DD HH:mm:ss");
-          const title_notification = `รับอุปกรณ์ฆ่าเชื้อสำเร็จกรุณามารับอุปกรณ์ฆ่าเชื้อในวันที่ ${moment(
+          const title_notification = `รับอุปกรณ์-เครื่องมือการแพทย์สำเร็จ กรุณามารับคืน วันที่ ${moment(
             tracking_meet
           ).format("DD-MM-YYYY")}`;
           const status_unread = 0;
@@ -801,7 +801,7 @@ app.post("/approve/:id", jsonParser, (req, res) => {
               // เพิ่มการแจ้งเตือนไปยังสถานะถัดไป
               const status_unread = 0;
               const public_health = 17;
-              const title_notification = "มีการเอกสารที่รอการอนุมัติ";
+              const title_notification = "มีเอกสารที่รอการอนุมัติ";
               connection.query(
                 "INSERT INTO notification (notification_date,notification_detail,notification_status,notification_role,notification_place) VALUES (?,?,?,?,?)",
                 [
@@ -946,7 +946,7 @@ app.put("/document/:id", jsonParser, (req, res) => {
             return;
           }
           const status_unread = 0;
-          const title_notification = "มีการเอกสารที่รอการอนุมัติ";
+          const title_notification = "มีเอกสารที่รอการอนุมัติ";
           const user_role = 2; //role ผู้อำนวยการรพ.
 
           89 -
